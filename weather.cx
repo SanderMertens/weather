@@ -1,0 +1,18 @@
+#package /corto/net/weather
+
+struct Wind::
+    speed: float64
+    degree: float64
+
+class CurrentWeather::
+    main: string
+    description: string
+    temp_min: float64
+    temp_max: float64
+    pressure: float64
+    humidity: float64
+    wind: weather/Wind
+
+class Connector: core/replicator, hidden::
+    int16 construct()
+    resultIter onRequest(core/request request)
